@@ -1,0 +1,62 @@
+<!doctype html>
+<input id="linkSlug" placeholder="abc123">
+<label>Original URL</label>
+<input id="targetUrl" placeholder="https://example.com/page">
+<label>Fallback URL (per-link)</label>
+<input id="fallbackUrl" placeholder="https://fallback.example.com">
+<label>Max visits per IP (0 = unlimited)</label>
+<input id="maxPerIp" type="number" placeholder="e.g., 3">
+<label>Timeframe (minutes, for maxPerIp)</label>
+<input id="timeframe" type="number" placeholder="e.g., 1440">
+<label>Allowed devices (comma: desktop,mobile,tablet) — blank = all</label>
+<input id="devices" placeholder="desktop,mobile">
+
+
+<div class="tier-controls">
+<h4>Allowed Countries</h4>
+<div>
+<label><input type="checkbox" id="allCountries"> Select All</label>
+<label><input type="checkbox" id="tier1Chk"> Tier 1</label>
+<label><input type="checkbox" id="tier2Chk"> Tier 2</label>
+<label><input type="checkbox" id="tier3Chk"> Tier 3</label>
+</div>
+<div id="countriesContainer" class="country-list"></div>
+</div>
+
+
+<label>Allowed sources (comma domains, hostnames) — blank = all</label>
+<input id="sources" placeholder="facebook.com,google.com">
+<div class="form-actions">
+<button id="createLinkBtn">Create / Save Link</button>
+<button id="resetForm">Reset</button>
+</div>
+</section>
+
+
+<section class="card" id="linksCard">
+<h2>Links</h2>
+<div id="linksList">Loading...</div>
+</section>
+
+
+<section class="card" id="statsCard">
+<h2>Stats</h2>
+<div id="summary">Loading...</div>
+<div class="stat-controls">
+<button id="refreshStats">Refresh Stats</button>
+<button id="clearLogs">Clear Logs</button>
+</div>
+<div id="mapContainer" style="height:380px;margin-top:12px;border-radius:8px;overflow:hidden"></div>
+<div id="countryTable" style="margin-top:10px"></div>
+</section>
+</main>
+</div>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/gist.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/traffic.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

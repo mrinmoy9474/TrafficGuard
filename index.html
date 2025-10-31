@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TrafficGuard — Redirect</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container center">
+<div id="status-card" class="card">
+<h2 id="headline">TrafficGuard</h2>
+<p id="msg">Processing...</p>
+<div id="loader">⏳</div>
+</div>
+</div>
+
+
+<script src="js/gist.js"></script>
+<script src="js/traffic.js"></script>
+<script>
+(async function(){
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+if (!id) return document.getElementById('msg').innerText = 'No link id provided.';
+// Gist ID should be stored by admin in localStorage (tg_gist_id); visitors don't need token
+const gistId = localStorage.getItem('tg_gist_id') || '';
+await handleVisit(id, { gistId });
+})();
+</script>
+</body>
+</html>
